@@ -26,9 +26,26 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false
 }));
 
-// CORS configuration - allow all origins for Vercel deployment
+// CORS configuration - Allow Vercel Frontend
+const allowedOrigins = [
+  'http://localhost:5500', 
+  'http://localhost:3000',
+  process.env.FRONTEND_URL, // e.g., https://rbukk.vercel.app
+  'https://rbukk.vercel.app' // Hardcoded fallback for safety
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1 || !process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+      callback(null, true);
+    } else {
+      console.log('Blocked Origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 

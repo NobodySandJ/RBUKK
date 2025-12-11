@@ -93,7 +93,7 @@ const initNavigation = () => {
   
   // Navbar scroll effect
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 100) {
       navbar?.classList.add('scrolled');
     } else {
       navbar?.classList.remove('scrolled');
@@ -119,7 +119,7 @@ const initNavigation = () => {
 };
 
 // ============================================
-// Load Members (Updated for New Clean Style)
+// Load Members
 // ============================================
 const loadMembers = async () => {
   try {
@@ -130,9 +130,10 @@ const loadMembers = async () => {
     }
   } catch (error) {
     console.error('Failed to load members:', error);
+    // Show fallback content or error message
     document.getElementById('members-grid').innerHTML = `
       <p style="grid-column: 1/-1; text-align: center; color: var(--dark-gray);">
-        Gagal memuat data member. Silakan coba lagi.
+        Failed to load members. Please try again later.
       </p>
     `;
   }
@@ -143,9 +144,9 @@ const renderMembers = (members) => {
   if (!grid) return;
   
   grid.innerHTML = members.map(member => `
-    <div class="member-card" onclick="showMemberModal(${member.id})" data-member-id="${member.id}">
+    <div class="member-card glass-card" onclick="showMemberModal(${member.id})" data-member-id="${member.id}">
       <img src="${member.image_url || '/assets/images/placeholder.jpg'}" 
-           alt="${member.name}" loading="lazy">
+           alt="${member.name}">
       <div class="member-info">
         <div class="member-name">${member.name}</div>
         <div class="member-catchphrase">"${member.catchphrase}"</div>
@@ -187,16 +188,19 @@ window.showMemberModal = async (memberId) => {
       document.getElementById('modal-member-img').src = member.image_url || '/assets/images/placeholder.jpg';
       document.getElementById('modal-member-img').alt = member.name;
       document.getElementById('modal-member-name').textContent = member.name;
-      document.getElementById('modal-member-position').textContent = member.position || 'Member';
+      document.getElementById('modal-member-position').textContent = member.position || '';
       document.getElementById('modal-member-catchphrase').textContent = `"${member.catchphrase}"`;
-      document.getElementById('modal-member-bio').textContent = member.bio || 'Bio belum tersedia.';
-      document.getElementById('modal-member-birthdate').textContent = member.birthdate ? new Date(member.birthdate).toLocaleDateString('id-ID', {day: 'numeric', month: 'long', year: 'numeric'}) : '-';
+      document.getElementById('modal-member-bio').textContent = member.bio || 'Bio coming soon...';
+      document.getElementById('modal-member-birthdate').textContent = member.birthdate ? new Date(member.birthdate).toLocaleDateString('id-ID') : 'N/A';
+      
+      const colorBadge = document.getElementById('modal-member-color');
+      colorBadge.style.background = member.member_color;
       
       modal.classList.add('active');
     }
   } catch (error) {
     console.error('Failed to load member details:', error);
-    alert('Gagal memuat detail member');
+    alert('Failed to load member details');
   }
 };
 
@@ -231,14 +235,14 @@ const renderProducts = (products) => {
   if (products.length === 0) {
     grid.innerHTML = `
       <p style="grid-column: 1/-1; text-align: center; color: var(--dark-gray);">
-        Belum ada produk dalam kategori ini.
+        No products available in this category.
       </p>
     `;
     return;
   }
   
   grid.innerHTML = products.map(product => `
-    <div class="product-card">
+    <div class="product-card glass-card">
       <img src="${product.image_url || '/assets/images/placeholder.jpg'}" 
            alt="${product.name}" 
            class="product-image">
@@ -291,7 +295,7 @@ const loadSchedule = async () => {
     console.error('Failed to load schedule:', error);
     document.getElementById('schedule-container').innerHTML = `
       <p style="text-align: center; color: var(--dark-gray);">
-        Failed to load schedule.
+        Failed to load schedule. Please try again later.
       </p>
     `;
   }
@@ -303,8 +307,8 @@ const renderSchedule = (events) => {
   
   if (events.length === 0) {
     container.innerHTML = `
-      <p style="text-align: center; color: var(--dark-gray); padding: 20px;">
-        Tidak ada jadwal event mendatang.
+      <p style="text-align: center; color: var(--dark-gray);">
+        No upcoming events scheduled.
       </p>
     `;
     return;
@@ -316,15 +320,16 @@ const renderSchedule = (events) => {
     const month = date.toLocaleDateString('id-ID', { month: 'short' });
     
     return `
-      <div class="event-card">
+      <div class="event-card glass-card">
         <div class="event-date-block">
           <div class="event-day">${day}</div>
           <div class="event-month">${month}</div>
         </div>
         <div class="event-details">
-          ${event.event_type ? `<span class="event-type">${event.event_type}</span>` : ''}
           <div class="event-title">${event.event_name}</div>
+          ${event.event_type ? `<span class="event-type">${event.event_type}</span>` : ''}
           ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
+          ${event.description ? `<div class="event-description">${event.description}</div>` : ''}
         </div>
       </div>
     `;
@@ -337,21 +342,20 @@ const renderSchedule = (events) => {
 const initScrollAnimations = () => {
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px'
   };
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+        entry.target.style.animation = 'fadeIn 0.8s ease forwards';
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
   
-  // Observe all cards
-  document.querySelectorAll('.clean-card, .member-card, .product-card, .event-card').forEach(el => {
-    el.style.opacity = '0'; // Initial state
+  // Observe all sections and cards
+  document.querySelectorAll('.section, .glass-card').forEach(el => {
     observer.observe(el);
   });
 };
@@ -359,4 +363,22 @@ const initScrollAnimations = () => {
 // ============================================
 // Utility Functions
 // ============================================
-console.log('%c🌊 Refresh Breeze Official Website', 'color: #00b894; font-size: 20px; font-weight: bold;');
+
+// Format currency
+const formatCurrency = (amount) => {
+  return `Rp ${amount.toLocaleString('id-ID')}`;
+};
+
+// Format date
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('id-ID', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+
+// Console message
+console.log('%c🌊 Refresh Breeze Official Website', 'color: #00CED1; font-size: 20px; font-weight: bold;');
+console.log('%cBuilt with modern web technologies', 'color: #87CEEB; font-size: 12px;');

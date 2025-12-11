@@ -1,16 +1,22 @@
-# Ignore node modules
+# Dependencies
 node_modules/
+package-lock.json
 
-# Ignore environment variables
+# Environment variables
 .env
+.env.local
+.env.production
 
 # Ignore logs
 *.log
 npm-debug.log*
 
-# Ignore OS files
+# OS
 .DS_Store
 Thumbs.db
+
+# Frontend source (we deploy from root)
+frontend/
 
 # Ignore IDE files
 .vscode/
