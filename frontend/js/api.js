@@ -4,6 +4,7 @@
 // Otomatis deteksi environment:
 // Jika localhost, gunakan http://localhost:3000/api
 // Jika di Vercel/Production, gunakan relative path '/api'
+// Ini PENTING agar Vercel tidak mencoba request ke localhost pengguna
 const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
   ? 'http://localhost:3000/api'
   : '/api';
@@ -32,8 +33,6 @@ const getAuthHeaders = () => {
 // Generic fetch wrapper with error handling
 const apiFetch = async (endpoint, options = {}) => {
   try {
-    // Remove leading slash from endpoint if API_BASE_URL already has trailing slash or specific logic
-    // But simplest way:
     const url = `${API_BASE_URL}${endpoint}`;
     
     const config = {
@@ -51,7 +50,10 @@ const apiFetch = async (endpoint, options = {}) => {
     // Handle non-JSON responses (like 404 HTML pages from Vercel if route wrong)
     const contentType = response.headers.get("content-type");
     if (!contentType || !contentType.includes("application/json")) {
-       throw new Error("Server returned non-JSON response. Check API URL.");
+       // Jika server error (500) atau not found (404) tapi bukan JSON
+       const text = await response.text();
+       console.error("Non-JSON Response:", text);
+       throw new Error("Server error or endpoint not found.");
     }
 
     const data = await response.json();

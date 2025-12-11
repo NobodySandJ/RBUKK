@@ -11,10 +11,6 @@
   --light-mint: #dff9fb;        /* Very light blue-green background */
   --accent-lime: #badc58;       /* Energetic Lime */
   
-  /* Member Colors (Placeholder) */
-  --member-pink: #fd79a8;
-  --member-blue: #74b9ff;
-
   /* Neutral Colors */
   --white: #ffffff;
   --off-white: #fdfdfd;
@@ -41,7 +37,7 @@
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
-  --spacing-2xl: 5rem; /* Lebih luas untuk kesan premium */
+  --spacing-2xl: 5rem;
 
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -99,7 +95,7 @@ button {
    ============================================ */
 
 .container {
-  max-width: 1140px; /* Standar Bootstrap container */
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
@@ -185,7 +181,6 @@ button {
   margin-right: auto;
 }
 
-/* Dekorasi Garis di bawah judul */
 .section-title::after {
   content: "";
   display: block;
@@ -225,16 +220,10 @@ button {
   align-items: center;
 }
 
-/* Logo Styles */
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.logo-img {
-  height: 40px; /* Sesuaikan ukuran */
-  width: auto;
 }
 
 .logo-text {
@@ -299,7 +288,6 @@ button {
   display: none; 
 }
 
-/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -320,14 +308,14 @@ button {
    ============================================ */
 
 .hero {
-  height: 85vh; /* Sedikit lebih pendek agar konten bawah terlihat */
+  height: 85vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   margin-top: 70px;
-  background: var(--black); /* Fallback */
+  background: var(--black);
 }
 
 .hero-slider {
@@ -344,8 +332,6 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover !important;
-  background-position: center !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,7 +346,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Overlay gelap agar teks terbaca */
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .hero-slide.active {
@@ -415,7 +401,6 @@ button {
   transform: scale(1.2);
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -426,7 +411,7 @@ button {
 .animate-fade-in-delay-2 { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
 
 /* ============================================
-   News Section (Official List Style)
+   News Section
    ============================================ */
 
 .news-section {
@@ -442,7 +427,7 @@ button {
 .news-card {
   border: none;
   background: var(--light-gray);
-  padding: 0; /* Reset padding */
+  padding: 0;
   overflow: hidden;
 }
 
@@ -489,7 +474,7 @@ button {
 }
 
 /* ============================================
-   Members Section (Circle / Card)
+   Members Section
    ============================================ */
 
 .members-grid {
@@ -614,7 +599,7 @@ button {
 .event-type {
   display: inline-block;
   padding: 2px 8px;
-  background: var(--dark-gray); /* Default */
+  background: var(--dark-gray);
   color: var(--white);
   font-size: 0.7rem;
   border-radius: 4px;
@@ -763,11 +748,11 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Lebih gelap */
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
   display: none;
-  align-items: center; /* Vertikal Center */
-  justify-content: center; /* Horizontal Center */
+  align-items: center;
+  justify-content: center;
   z-index: 2000;
   padding: 20px;
   animation: fadeIn 0.3s ease;
@@ -780,7 +765,7 @@ button {
 .modal {
   background: var(--white);
   width: 100%;
-  max-width: 500px; /* Lebar optimal */
+  max-width: 500px;
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 60px rgba(0,0,0,0.2);
   position: relative;
@@ -815,7 +800,7 @@ button {
 
 /* Auth Modal Specifics */
 .auth-modal {
-  padding: 0; /* Reset padding for header */
+  padding: 0;
 }
 
 .auth-header {
