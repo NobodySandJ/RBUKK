@@ -268,19 +268,104 @@ Edit CSS variables di `frontend/css/style.css`:
 - **Payment**: Midtrans Sandbox
 - **Environment**: Development
 
-## 🚀 Production Deployment
+## 🚀 Deployment ke Vercel
 
-### Backend (Heroku/Railway/Vercel)
+### Persiapan
 
-1. Set environment variables
-2. Change `MIDTRANS_IS_PRODUCTION=true`
-3. Update production Midtrans keys
-4. Deploy
+1. **Install Vercel CLI** (opsional, bisa juga via dashboard):
 
-### Frontend (Netlify/Vercel)
+   ```bash
+   npm install -g vercel
+   ```
 
-1. Update API_BASE_URL di `frontend/js/api.js`
-2. Deploy frontend files
+2. **Login ke Vercel**:
+   ```bash
+   vercel login
+   ```
+
+### Deployment via CLI
+
+1. **Deploy ke Vercel**:
+
+   ```bash
+   cd c:\Githab\RBUKK
+   vercel
+   ```
+
+2. **Set Environment Variables** saat deployment atau setelahnya:
+
+   ```bash
+   vercel env add SUPABASE_URL
+   vercel env add SUPABASE_ANON_KEY
+   vercel env add SUPABASE_SERVICE_KEY
+   vercel env add JWT_SECRET
+   vercel env add MIDTRANS_SERVER_KEY
+   vercel env add MIDTRANS_CLIENT_KEY
+   vercel env add MIDTRANS_IS_PRODUCTION
+   ```
+
+3. **Deploy Production**:
+   ```bash
+   vercel --prod
+   ```
+
+### Deployment via Dashboard
+
+1. Buka [https://vercel.com](https://vercel.com)
+2. Import Git Repository
+3. Configure Project:
+
+   - **Framework Preset**: Other
+   - **Build Command**: (kosongkan)
+   - **Output Directory**: (kosongkan)
+   - **Install Command**: `npm install`
+
+4. **Add Environment Variables** di Settings > Environment Variables:
+
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_KEY`
+   - `JWT_SECRET`
+   - `MIDTRANS_SERVER_KEY`
+   - `MIDTRANS_CLIENT_KEY`
+   - `MIDTRANS_IS_PRODUCTION=false` (gunakan `true` untuk production)
+
+5. Deploy!
+
+### Struktur Deployment
+
+```
+Vercel Deployment:
+├── api/index.js          → Serverless Function (/api/*)
+├── index.html            → Static Frontend
+├── css/                  → Static Assets
+├── js/                   → Static Assets
+├── assets/               → Static Assets
+└── vercel.json          → Configuration
+```
+
+### Environment Variables yang Diperlukan
+
+Referensi file `.env.example` untuk list lengkap environment variables.
+
+### Testing Deployment
+
+1. **Health Check**:
+
+   ```
+   https://your-project.vercel.app/api/health
+   ```
+
+2. **Frontend**:
+   ```
+   https://your-project.vercel.app
+   ```
+
+### Troubleshooting
+
+- **500 Error pada API**: Cek environment variables sudah di-set
+- **CORS Error**: Pastikan FRONTEND_URL di environment variables sesuai
+- **Database Connection**: Supabase sudah support serverless by default
 
 ## 📧 Support
 

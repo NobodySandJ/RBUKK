@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Refresh Breeze - Grup Idola terbaru dengan energi segar seperti angin laut. Member kami membawa kesegaran baru di industri hiburan!"
+    />
+    <meta property="og:title" content="Refresh Breeze - Official Website" />
+    <meta
+      property="og:description"
+      content="Grup idola dengan 7 member penuh energi!"
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Refresh Breeze - Official Website</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1 class="logo">Refresh Breeze</h1>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#members" class="nav-link">Members</a></li>
+          <li><a href="#schedule" class="nav-link">Schedule</a></li>
+          <li><a href="#fan-corner" class="nav-link">Fan Corner</a></li>
+          <li><a href="#shop" class="nav-link">Shop</a></li>
+          <li>
+            <a href="#" class="nav-link auth-trigger" id="loginBtn">Login</a>
+          </li>
+        </ul>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Slider -->
+    <section id="home" class="hero">
+      <div class="hero-slider">
+        <div
+          class="hero-slide active"
+          style="background: linear-gradient(135deg, #00ced1 0%, #87ceeb 100%)"
+        >
+          <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">
+              Welcome to Refresh Breeze
+            </h1>
+            <p class="hero-subtitle animate-fade-in-delay">
+              Energi Segar yang Menyegarkan!
+            </p>
+            <a href="#members" class="btn btn-primary animate-fade-in-delay-2"
+              >Meet Our Members</a
+            >
+          </div>
+        </div>
+        <div
+          class="hero-slide"
+          style="background: linear-gradient(135deg, #98d8c8 0%, #40e0d0 100%)"
+        >
+          <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">New Single Coming Soon</h1>
+            <p class="hero-subtitle animate-fade-in-delay">
+              "Ocean Breeze" - 15 Januari 2026
+            </p>
+            <a href="#schedule" class="btn btn-primary animate-fade-in-delay-2"
+              >Check Schedule</a
+            >
+          </div>
+        </div>
+        <div
+          class="hero-slide"
+          style="background: linear-gradient(135deg, #5f9ea0 0%, #b0e0e6 100%)"
+        >
+          <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">Join Our Community</h1>
+            <p class="hero-subtitle animate-fade-in-delay">
+              Dapatkan konten eksklusif di Fan Corner!
+            </p>
+            <a
+              href="#fan-corner"
+              class="btn btn-primary animate-fade-in-delay-2"
+              >Explore Now</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="hero-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Refresh Breeze</h2>
+        <div class="about-content glass-card">
+          <p>
+            <strong>Refresh Breeze</strong> adalah grup idola baru yang hadir
+            dengan energi segar seperti angin laut yang menyegarkan. Dengan 7
+            member berbakat, kami membawa warna baru di industri hiburan
+            Indonesia.
+          </p>
+          <p>
+            Kami percaya bahwa setiap penampilan adalah kesempatan untuk
+            memberikan semangat dan kebahagiaan kepada para fans. Dengan tema
+            langit biru dan laut yang tenang, kami siap membawa kalian ke dunia
+            yang penuh warna!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="section news-section">
+      <div class="container">
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-grid">
+          <article class="news-card glass-card">
+            <div class="news-date">10 Des 2025</div>
+            <h3>Konser Perdana Refresh Breeze!</h3>
+            <p>
+              Jangan lewatkan konser perdana kami di Jakarta Convention Center
+              tanggal 25 Desember 2025!
+            </p>
+            <a href="#schedule" class="btn-text">Lihat Jadwal →</a>
+          </article>
+          <article class="news-card glass-card">
+            <div class="news-date">05 Des 2025</div>
+            <h3>New Single "Ocean Breeze"</h3>
+            <p>
+              Single terbaru kami akan dirilis 15 Januari 2026 di semua platform
+              digital!
+            </p>
+            <a href="#" class="btn-text">Read More →</a>
+          </article>
+          <article class="news-card glass-card">
+            <div class="news-date">01 Des 2025</div>
+            <h3>Official Merchandise Launch</h3>
+            <p>
+              Merchandise resmi sudah tersedia! Dapatkan light stick dan photo
+              book eksklusif.
+            </p>
+            <a href="#shop" class="btn-text">Shop Now →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members" class="section">
+      <div class="container">
+        <h2 class="section-title">Our Members</h2>
+        <div class="members-grid" id="members-grid">
+          <!-- Members will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="section">
+      <div class="container">
+        <h2 class="section-title">Event Schedule</h2>
+        <div class="schedule-container" id="schedule-container">
+          <!-- Events will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Fan Corner Section -->
+    <section id="fan-corner" class="section">
+      <div class="container">
+        <h2 class="section-title">Fan Corner</h2>
+        <p class="section-subtitle">Konten eksklusif dari member untuk fans!</p>
+        <div class="fan-content-grid">
+          <article class="fan-card glass-card">
+            <div class="fan-author">
+              <div class="author-avatar" style="background: #00ced1">A</div>
+              <div>
+                <div class="author-name">Aira Mizuki</div>
+                <div class="post-date">Hari ini</div>
+              </div>
+            </div>
+            <h3>Halo dari Aira!</h3>
+            <p>
+              Hai semua!! Ini adalah blog pertama aku di Fan Corner! Semoga
+              kalian suka ya~ 💙
+            </p>
+          </article>
+          <article class="fan-card glass-card">
+            <div class="fan-author">
+              <div class="author-avatar" style="background: #87ceeb">S</div>
+              <div>
+                <div class="author-name">Sakura Hoshino</div>
+                <div class="post-date">Kemarin</div>
+              </div>
+            </div>
+            <h3>Behind the Scenes - Practice</h3>
+            <p>Video latihan dance untuk single baru kami! Stay tuned! ⭐</p>
+          </article>
+          <article class="fan-card glass-card">
+            <div class="fan-author">
+              <div class="author-avatar" style="background: #98d8c8">Y</div>
+              <div>
+                <div class="author-name">Yuki Amano</div>
+                <div class="post-date">2 hari lalu</div>
+              </div>
+            </div>
+            <h3>My Favorite Photos</h3>
+            <p>
+              Sharing beberapa foto favorit aku dari photoshoot terakhir! 📸
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="section">
+      <div class="container">
+        <h2 class="section-title">Official Merchandise</h2>
+        <div class="shop-tabs">
+          <button class="tab-btn active" data-category="all">All Items</button>
+          <button class="tab-btn" data-category="cheki">Cheki</button>
+          <button class="tab-btn" data-category="goods">Goods</button>
+        </div>
+        <div class="products-grid" id="products-grid">
+          <!-- Products will be loaded dynamically -->
+        </div>
+        <button class="btn btn-primary cart-btn" id="cartBtn">
+          🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Refresh Breeze</h3>
+            <p>Energi segar yang menyegarkan!</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About</a></li>
+              <li><a href="#members">Members</a></li>
+              <li><a href="#schedule">Schedule</a></li>
+              <li><a href="#shop">Shop</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#" class="social-link">Instagram</a>
+              <a href="#" class="social-link">Twitter</a>
+              <a href="#" class="social-link">YouTube</a>
+              <a href="#" class="social-link">TikTok</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Refresh Breeze. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Templates -->
+
+    <!-- Member Modal Template -->
+    <template id="member-modal-template">
+      <div class="modal-overlay" id="member-modal">
+        <div class="modal glass-card">
+          <button class="modal-close" id="close-member-modal">&times;</button>
+          <div class="member-modal-content">
+            <img src="" alt="" class="member-modal-img" id="modal-member-img" />
+            <div class="member-modal-info">
+              <h2 id="modal-member-name"></h2>
+              <div class="member-color-badge" id="modal-member-color"></div>
+              <p class="member-position" id="modal-member-position"></p>
+              <p class="member-catchphrase" id="modal-member-catchphrase"></p>
+              <div class="member-bio" id="modal-member-bio"></div>
+              <div class="member-details">
+                <p>
+                  <strong>Birthdate:</strong>
+                  <span id="modal-member-birthdate"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Auth Modal Template -->
+    <template id="auth-modal-template">
+      <div class="modal-overlay" id="auth-modal">
+        <div class="modal glass-card auth-modal">
+          <button class="modal-close" id="close-auth-modal">&times;</button>
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login">Login</button>
+            <button class="auth-tab" data-tab="register">Register</button>
+          </div>
+
+          <!-- Login Form -->
+          <form id="login-form" class="auth-form">
+            <h2>Welcome Back!</h2>
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" required />
+            </div>
+            <div class="error-message" id="login-error"></div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Login
+            </button>
+          </form>
+
+          <!-- Register Form -->
+          <form id="register-form" class="auth-form" style="display: none">
+            <h2>Join Our Community!</h2>
+            <div class="form-group">
+              <label for="register-name">Full Name</label>
+              <input type="text" id="register-name" required />
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email</label>
+              <input type="email" id="register-email" required />
+            </div>
+            <div class="form-group">
+              <label for="register-phone">Phone (Optional)</label>
+              <input type="tel" id="register-phone" />
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <input
+                type="password"
+                id="register-password"
+                required
+                minlength="6"
+              />
+            </div>
+            <div class="error-message" id="register-error"></div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </template>
+
+    <!-- Cart Modal Template -->
+    <template id="cart-modal-template">
+      <div class="modal-overlay" id="cart-modal">
+        <div class="modal glass-card cart-modal">
+          <button class="modal-close" id="close-cart-modal">&times;</button>
+          <h2>Shopping Cart</h2>
+          <div class="cart-items" id="cart-items">
+            <!-- Cart items will be loaded dynamically -->
+          </div>
+          <div class="cart-empty" id="cart-empty" style="display: none">
+            <p>Your cart is empty 🛒</p>
+          </div>
+          <div class="cart-summary" id="cart-summary">
+            <div class="cart-total">
+              <span>Total:</span>
+              <span id="cart-total">Rp 0</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn">
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

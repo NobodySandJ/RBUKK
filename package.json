@@ -1,0 +1,25 @@
+{
+  "name": "refresh-breeze",
+  "version": "1.0.0",
+  "description": "Refresh Breeze Official Website",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "midtrans-client": "^1.3.1",
+    "validator": "^13.11.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}

@@ -1,0 +1,8 @@
+backend/node_modules
+frontend
+database
+.git
+.env
+*.log
+.DS_Store
+README.md
